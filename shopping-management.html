@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>management</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<!--[if lt IE 9]>
+		  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="vakata-jstree-9770c67/dist/themes/default/style.min.css" />
+
+	</head>
+
+	<body>
+		<!--nav start-->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="collapsed navbar-toggle" data-target="#collapse" data-toggle="collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">网站后台管理系统</a>
+				</div>
+				<div class="collapse navbar-collapse" id="collapse">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#" class="btn">
+								<span class="glyphicon glyphicon-bell" style="font-size: 20px;"></span>
+								<span class="badge">8</span>
+							</a>
+						</li>
+						<li>
+							<a href="#" id="time" class="btn"></a>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+								欢迎光临<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="#">
+										<span class="glyphicon glyphicon-cog"></span> 设置
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span class="glyphicon glyphicon-user"></span> 个人资料
+									</a>
+								</li>
+								<li role="presentation" class="divider"></li>
+								<li>
+									<a href="#" id="Exit_system" data-toggle="modal" data-target="#myModaledit">
+										<span class="glyphicon glyphicon-off"></span> 退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- Modal -->
+		<div class="modal fade" id="myModaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="myModalLabel">通知</h4>
+					</div>
+					<div class="modal-body">
+						确定要退出系统?
+					</div>
+					<div class="modal-footer">
+						<a type="button" class="btn btn-default" href="login.html">确定</a>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--nav end-->
+		<div class="container-fluid">
+			<div class="row">
+				<!---left-menu start-->
+				<div class="col-sm-2" style="padding-right: 0;">
+					<button class="btn left-menu-title btn-primary">
+						<a href="#" style="color: #fff;">网站后台管理系统</a>
+						<span class="glyphicon glyphicon-th-large" style="display: none;"></span>
+					</button>
+					<div class="panel-group" id="father" style="height: 500px;overflow: auto;">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-home" style="position: absolute;top: 50%;margin-top:2px;color: #9ACFEA;"></span>
+									<a href="#clp-0" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										系统首页
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse " id="clp-0" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#home" data-toggle="tab">首页</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-compressed" style="position: absolute;top: 50%;margin-top:2px;color: #FA875A;"></span>
+									<a href="#clp-1" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										产品管理
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse " id="clp-1" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#product-list" data-toggle="tab">产品类表</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#brand-management" data-toggle="tab">品牌管理</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#classify-management" data-toggle="tab">分类管理</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-picture" style="position: absolute;top: 50%;margin-top:2px;color: #A0D7F6;"></span>
+									<a href="#clp-2" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										图片管理
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse " id="clp-2" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#ad-management" data-toggle="tab">广告管理</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#classify-management-two" data-toggle="tab">分类管理</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-list" style="position: absolute;top: 50%;margin-top:2px;color: #F06292;"></span>
+									<a href="#clp-3" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										交易管理
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse " id="clp-3" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#trade-infor" data-toggle="tab">交易信息</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#order-management" data-toggle="tab">订单管理</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#trade-money" data-toggle="tab">交易金额</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#order-deal" data-toggle="tab">订单处理</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-user" style="position: absolute;top: 50%;margin-top:2px;color: #D53F40;"></span>
+									<a href="#clp-4" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										会员管理
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse " id="clp-4" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">会员列表</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">等级管理</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">会员记录管理</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-pencil" style="position: absolute;top: 50%;margin-top:2px;color: #A5D8A5;"></span>
+									<a href="#clp-5" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										留言管理
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse " id="clp-5" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">留言列表</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">意见反馈</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-list-alt" style="position: absolute;top: 50%;margin-top:2px;"></span>
+									<a href="#clp-6" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										文章管理
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse " id="clp-6" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">文章列表</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-asterisk" style="position: absolute;top: 50%;margin-top:2px;color: #A5D6A7;"></span>
+									<a href="#clp-7" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										系统管理
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse " id="clp-7" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">系统设置</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">栏目管理</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">系统日志</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title" style="position: relative;">
+									<span class="glyphicon glyphicon-user" style="position: absolute;top: 50%;margin-top:2px;color: #E040FB;"></span>
+									<a href="#clp-8" data-toggle="collapse" data-parent="#father" style="position: absolute;left: 16%;top: 50%;margin-top: 5px;">
+										管理员管理
+									</a>
+								</h4>
+							</div>
+							<div class="panel-collapse  collapse" id="clp-8" data-parent="#father">
+								<ul class="list-group">
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">管理权限</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">管理员列表</a>
+									</li>
+									<li class="list-group-item hasjiao">
+										<span>&raquo;&nbsp;</span>
+										<a href="#">个人信息</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="collapse-conner-box">
+						<div class="collapse-conner">&raquo;</div>
+					</div>
+				</div>
+				<!---left-menu end-->
+				<!---right-content start-->
+				<div class="col-sm-10" style="padding-left: 0;">
+					<div class="tab-content">
+						<!--home start-->
+						<div class="tab-pane active" id="home">
+							<ol class="breadcrumb" style="margin-bottom: 0;border-bottom: 1px solid #ccc;">
+								<li>
+									<a href="#">Home</a>
+								</li>
+							</ol>
+							<div style="height: 540px;overflow: auto;padding-top: 20px;">
+								<div style="width: 100%;padding: 0px 20px;margin-bottom: 20px;" class="info-box">
+									<button class="btn btn-info" style="width: 100%;">
+									<a href="#" style="font-weight: 700;color: #fff;">欢迎使用后台管理系统(v1.2),你本次登陆时间为<span class="time"></span>，登陆</a>
+									<a href="#">IP:192.168.1.110.</a>
+									<span class="glyphicon glyphicon-remove pull-right info-close"></span>
+								</button>
+								</div>
+								<div class="home-button-big clearfix" style="width: 100%;padding: 0px 20px;">
+									<button class="btn pull-left" style="width: 47.5%;height: 100px;background: #fff;padding: 0;border: 1px solid #ccc;margin-right: 5%;margin-bottom: 15px;">
+									<div  class="pull-left span-box" style="background: #6CCAC9;">
+										<span class="glyphicon glyphicon-user"></span>
+									</div>
+									<div class="pull-left text-box">
+										<h1 style="margin: 10px 0px;">34522</h1>
+										<p>商城用户</p>
+									</div>
+								</button>
+									<button class="btn pull-left" style="width: 47.5%;height: 100px;background: #fff;padding: 0;border: 1px solid #ccc;margin-bottom: 15px;">
+									<div  class="pull-left span-box" style="background: #ff6c60;">
+										<span class="glyphicon glyphicon-tags"></span>
+									</div>
+									<div class="pull-left text-box">
+										<h1 style="margin: 10px 0px;">140</h1>
+										<p>分销记录</p>
+									</div>
+								</button>
+									<button class="btn pull-left" style="width: 47.5%;height: 100px;background: #fff;padding: 0;border: 1px solid #ccc;margin-right: 5%;">
+									<div  class="pull-left span-box" style="background: #f8d347;">
+										<span class="glyphicon glyphicon-shopping-cart"></span>
+									</div>
+									<div class="pull-left text-box">
+										<h1 style="margin: 10px 0px;">345</h1>
+										<p>商城订单</p>
+									</div>
+								</button>
+									<button class="btn pull-left" style="width: 47.5%;height: 100px;background: #fff;padding: 0;border: 1px solid #ccc;">
+									<div  class="pull-left span-box" style="background: #57cbf2;">
+										<span class="glyphicon glyphicon-stats"></span>
+									</div>
+									<div class="pull-left text-box">
+										<h1 style="margin: 10px 0px;">34,522</h1>
+										<p>交易记录</p>
+									</div>
+								</button>
+								</div>
+								<div style="padding: 0px 20px;margin-top: 20px;" class="clearfix">
+									<div id="main" class="pull-left" style="width:850px;height:300px;border: 1px solid #ccc;border-radius: 4px;padding: 10px;">
+									</div>
+									<div class="new pull-right" style="width: 20%;border: 1px solid #ccc;height: 300px;">
+										<div class="title_name">最新消息</div>
+										<ul class="list-unstyled" style="padding: 0px 10px;">
+											<li style="height: 30px;margin-top: 10px;">
+												<i class="glyphicon glyphicon-bell" style="color: #FF1744;font-size: 16px;"></i>
+												<a href="#">后台系统找那个是开通了。</a>
+											</li>
+											<li style="height: 30px;">
+												<i class="glyphicon glyphicon-bell" style="color: #FF1744;font-size: 16px;"></i>
+												<a href="#">后台系统找那个是开通了。</a>
+											</li>
+											<li style="height: 30px;">
+												<i class="glyphicon glyphicon-bell" style="color: #FF1744;font-size: 16px;"></i>
+												<a href="#">后台系统找那个是开通了。</a>
+											</li>
+											<li style="height: 30px;">
+												<i class="glyphicon glyphicon-bell" style="color: #FF1744;font-size: 16px;"></i>
+												<a href="#">后台系统找那个是开通了。</a>
+											</li>
+											<li style="height: 30px;">
+												<i class="glyphicon glyphicon-bell" style="color: #FF1744;font-size: 16px;"></i>
+												<a href="#">后台系统找那个是开通了。</a>
+											</li>
+										</ul>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<!--home end-->
+						<!--产品类表 start-->
+						<div class="tab-pane " id="product-list">
+							<ol class="breadcrumb" style="margin-bottom: 0;border-bottom: 1px solid #ccc;">
+								<li>
+									<a href="#">产品管理</a>
+								</li>
+								<li class="active leibiao">
+									<a href="#">产品类表</a>
+								</li>
+							</ol>
+							<div style="height: 540px;overflow: auto;padding:20px">
+								<form class="form-horizontal formtwo">
+									<fieldset>
+										<legend>搜索查询</legend>
+										<div class="form-group">
+											<label for="inputEmail3" class="col-sm-1 control-label">产品名称</label>
+											<div class="col-sm-11">
+												<input type="text" class="form-control" id="inputEmail3" placeholder="输入品牌名称">
+											</div>
+										</div>
+										<div class="form-group">
+											<label for="inputdate" class="col-sm-1 control-label">添加时间</label>
+											<div class="col-sm-11">
+												<input type="date" class="form-control" id="inputdate">
+											</div>
+										</div>
+										<button type="submit" class="btn btn-primary pull-right" style="margin-top: -155px;z-index: 999;">
+											<span class="glyphicon glyphicon-search" style="font-size: 14px;"></span>
+										</button>
+									</fieldset>
+
+								</form>
+								<div style="height:55px;border: 1px solid #ccc;margin-top: 20px;padding: 10px;" class="tianjiaobox">
+									<button class="btn btn-warning" style="margin-right: 20px;">
+										<span class="glyphicon glyphicon-plus" style="font-size: 14px;text-shadow: 2px 0px 5px rgba(0,0,0,.3);">&nbsp;添加商品</span>
+									</button>
+									<button class="btn btn-danger">
+										<span class="glyphicon glyphicon-trash" style="font-size: 14px;text-shadow: 2px 0px 5px rgba(0,0,0,.3);">&nbsp;批量删除</span>
+									</button>
+								</div>
+								<div style="height: 300px;border: 1px solid #ccc;margin-top: 20px;position: relative;" class="tianjiaxinxi">
+									<div class="pull-left" style="height:100%;width: 20%;border-right: 1px solid #ccc;overflow: auto;">
+										<div style="height: 40px;color: #fff;line-height: 40px;background: #0091EA;font-weight: 700;font-size: 18px;padding-left: 20px;">产品类型列表</div>
+										<div id="jstree" style="margin-top: 20px;">
+											<ul>
+												<li>商城分类列表
+													<ul>
+														<li id="child_node_1">水果蔬菜
+															<ul>
+																<li>苹果</li>
+																<li>梨子</li>
+																<li>青菜</li>
+																<li>桃子</li>
+																<li>白菜</li>
+															</ul>
+														</li>
+														<li>手机数码
+															<ul>
+																<li>手机</li>
+																<li>照相机</li>
+															</ul>
+														</li>
+														<li>电脑配件
+															<ul>
+																<li>鼠标</li>
+																<li>键盘</li>
+															</ul>
+														</li>
+														<li>服装鞋帽</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div style="padding: 10px;width: 80%;overflow: auto;height: 300px;" class="pull-left big-box">
+										<div class="clearfix table-hide-one" style="margin-bottom: 20px;">
+											<a href="#" style="margin:10px">每页显示条数</a>
+											<select class="meiye" name="search-sort">
+												<option value="5">5</option>
+												<option value="10">10</option>
+												<option value="15" selected="selected">15</option>
+											</select>
+											<input type="text" class="pull-right" />
+											<a href="#" class="pull-right" style="margin-top:3px;">搜索&nbsp;</a>
+										</div>
+										<div class="table-box">
+											<div class="table-responsive product-table-one">
+												<table class="table table-condensed table-bordered " style="width: 1366px;">
+													<tr>
+														<th style="width: 25px;">
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox" id="blankCheckbox" value="option1">
+	  														</label>
+															</div>
+														</th>
+														<th style="width: 80px;">
+															<a href="#">产品编号</a>
+														</th>
+														<th style="width: 250px;">产品名称</th>
+														<th style="width: 100px;">原价格</th>
+														<th style="width: 100px;">现价格</th>
+														<th style="width: 100px;">所属地区/国家</th>
+														<th style="width: 180px;">加入时间</th>
+														<th style="width: 80px;">审核状态</th>
+														<th style="width: 70px;">状态</th>
+														<th style="width: 150px;">操作</th>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>987767</td>
+														<td>
+															<a href="#">
+																小米 Max 联通版 高配版 3GB
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 电信版3GB内存
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;"></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>58700</td>
+														<td>
+															<a href="#">
+																小米 Max移动4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 4G手机
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>52341</td>
+														<td>
+															<a href="#">
+																小米 Note2 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																小米 Max 全网通 高配版 3GB内存 64GB ROM 金色 移动联通电信4G手机Y
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+												</table>
+											</div>
+											<div class="table-responsive product-table-two" style="display: none;">
+												<table class="table table-condensed table-bordered " style="width: 1366px;">
+													<tr>
+														<th style="width: 25px;">
+															<div class="checkbox">
+																<label>
+	    															<input type="checkbox" value="option1" class="xuan">
+	  															</label>
+															</div>
+														</th>
+														<th style="width: 80px;">
+															<a href="#">产品编号</a>
+														</th>
+														<th style="width: 250px;">产品名称</th>
+														<th style="width: 100px;">原价格</th>
+														<th style="width: 100px;">现价格</th>
+														<th style="width: 100px;">所属地区/国家</th>
+														<th style="width: 180px;">加入时间</th>
+														<th style="width: 80px;">审核状态</th>
+														<th style="width: 70px;">状态</th>
+														<th style="width: 150px;">操作</th>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    															<input type="checkbox"  value="option1" class="xuan">
+	  															</label>
+															</div>
+														</td>
+														<td>987767</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;"></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;"></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>568952</td>
+														<td>
+															<a href="#">
+																vivo x5prod 全网通4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td>
+															<div style="background: #00BFA5;color: #fff;">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+														</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+															<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+														</button>
+														</td>
+													</tr>
+													
+												</table>
+											</div>
+											<div class="table-responsive product-table-three" style="display: none;">
+												<table class="table table-condensed table-bordered " style="width: 1366px;">
+													<tr>
+														<th style="width: 25px;">
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  															</label>
+															</div>
+														</th>
+														<th style="width: 80px;">
+															<a href="#">产品编号</a>
+														</th>
+														<th style="width: 250px;">产品名称</th>
+														<th style="width: 100px;">原价格</th>
+														<th style="width: 100px;">现价格</th>
+														<th style="width: 100px;">所属地区/国家</th>
+														<th style="width: 180px;">加入时间</th>
+														<th style="width: 80px;">审核状态</th>
+														<th style="width: 70px;">状态</th>
+														<th style="width: 150px;">操作</th>
+													</tr>
+													<tr>
+														<td>
+															<div class="checkbox">
+																<label>
+	    														<input type="checkbox"  value="option1" class="xuan">
+	  														</label>
+															</div>
+														</td>
+														<td>987767</td>
+														<td>
+															<a href="#">
+																oppo r9 全网通金色4g
+															</a>
+														</td>
+														<td>5467</td>
+														<td>4525</td>
+														<td>中国</td>
+														<td>2014-6-11 11:11:42</td>
+														<td>通过</td>
+														<td class="xiong">
+															<div style="background: #00BFA5;color: #fff;" class="tingyong-box">已启用</div>
+														</td>
+														<td style="padding: 10px 10px;">
+															<button class="btn btn-success" style="margin-right: 10px;">
+																<span class="glyphicon glyphicon-ok" style="font-size: 14px;"></span>
+															</button>
+															<button class="btn btn-info" style="margin-right: 10px;">
+																<span class="glyphicon glyphicon-pencil" style="font-size: 14px;"></span>
+															</button>
+															<button class="btn btn-warning" style="margin-right: 10px;">
+																<span class="glyphicon glyphicon-trash"style="font-size: 14px;" ></span>
+															</button>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<div class="clearfix table-hide-two">
+											<div class="pull-left">
+												<p>第<span class="qian"></span>到<span class="hou"></span>条记录，共<span class="total"></span>条记录</p>
+											</div>
+											<div class="pull-right">
+												<nav>
+													<ul class="pagination">
+														<li class="start disabled">
+															<a href="#">&laquo;</a>
+														</li>
+														<li class="table-button active">
+															<a href="#">1</a>
+														</li>
+														<li class="table-button">
+															<a href="#">2</a>
+														</li>
+														<li class="table-button">
+															<a href="#">3</a>
+														</li>
+														<li class="end">
+															<a href="#">&raquo;</a>
+														</li>
+													</ul>
+												</nav>
+											</div>
+										</div>
+										<div class="pull-left tianjia-bigbox" style="overflow: auto;">
+											<div class="title-name">添加商品</div>
+											<form class="" style="margin-top: 20px;color: #666;">
+												<div class="form-group">
+													<label for="exampleInputEmail1">*图片标题：</label>
+													<input type="text" class="form-control" required>
+												</div>
+												<div class="form-group">
+													<label for="exampleInputEmail1">简略标题：</label>
+													<input type="text" class="form-control">
+												</div>
+												<div class="form-group" style="display: inline-block;margin-right: 30px;">
+													<label for="exampleInputEmail1">产品编号：</label>
+													<input type="text">
+												</div>
+												<div class="form-group" style="display: inline-block;margin-right: 30px;">
+													<label for="exampleInputEmail1">产地：</label>
+													<input type="text" id="exampleInputEmail1">
+												</div>
+												<div class="form-group" style="display: inline-block;margin-right: 30px;">
+													<label for="exampleInputEmail1">材质：</label>
+													<input type="text">
+												</div>
+												<div class="form-group" style="display: inline-block;margin-right: 30px;">
+													<label for="exampleInputEmail1">品牌：</label>
+													<input type="text">
+												</div>
+												<div class="form-group" style="display: inline-block;margin-right: 30px;">
+													<label for="exampleInputEmail1">产品重量：</label>
+													<input type="text">kg
+												</div>
+												<div class="form-group" style="display: inline-block;margin-right: 30px;">
+													<label for="exampleInputEmail1">单位：</label>
+													<select name="" style="width:100px;">
+														<option>请选择</option>
+														<option value="1">件</option>
+														<option value="2">斤</option>
+														<option value="3">KG</option>
+														<option value="4">吨</option>
+														<option value="5">套</option>
+													</select>
+												</div>
+												<div class="form-group" style="display: inline-block;margin-right: 30px;">
+													<label for="exampleInputEmail1">展示价格：</label>
+													<input type="text">元
+												</div>
+												<div class="form-group" style="display: inline-block;margin-right: 30px;">
+													<label for="exampleInputEmail1">市场价格：</label>
+													<input type="text">元
+												</div>
+												<div class="form-group">
+													<label for="exampleInputEmail1">关键词：</label>
+													<input type="text" class="form-control">
+												</div>
+												<div class="form-group">
+													<label for="">内容摘要：</label>
+													<textarea class="form-control" name="talkTopic" id="talkTopic" rows="4" cols="50" maxlength='300' onKeyDown="checkLength()" onKeyUp="checkLength()" onPaste="checkLength()"></textarea>
+													<p class="textarea-numberbar">还可以输入<span id="validNum">300</span>字</p>
+												</div>
+												<div class="form-group">
+													<label for="">图片上传：</label>
+													<input type="file" name="" id="" value="" />
+												</div>
+												<div class="form-group">
+													<label for="exampleInputEmail1">详细介绍：</label>
+													<input type="file" name="" id="" value="" />
+												</div>
+												<button class="btn btn-primary pull-right tijiao">提交</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--产品类表 end-->
+						<!--品牌管理 start-->
+						<div class="tab-pane " id="brand-management">
+							<ol class="breadcrumb" style="margin-bottom: 0;border-bottom: 1px solid #ccc;">
+								<li>
+									<a href="#">产品管理</a>
+								</li>
+								<li class="active leibiao">
+									<a href="#">品牌管理</a>
+								</li>
+							</ol>
+							<div class="brand-btn">
+								<button class="btn btn-primary brand-add" data-toggle="modal" data-target="#myModaltianjia" >添加商品</button>
+								<button class="btn btn-danger" id="piliang">批量删除</button>
+								<button class="btn btn-success" id="china-brand">国内品牌</button>
+								<button class="btn btn-info" id="foreign-brand">国外品牌</button>
+							</div>
+							<div class="brand-table">
+								<div class="table-responsive">
+									<table class="table table-condensed table-bordered brand-tab">
+										<tr class="table-header">
+											<th width="25px"><input type="checkbox" class="ace" id="brand-quanxuan"></th>
+											<th width="80px">ID</th>
+											<th width="120px">品牌LOGO</th>
+											<th width="120px">品牌名称</th>
+											<th width="130px">所属地区/国家</th>
+											<th width="350px">描述</th>
+											<th width="180px">加入时间</th>
+											<th width="200px">操作</th>
+										</tr>
+										<tr>
+											<td width="25px"><input type="checkbox" class="ace"></td>
+											<td width="80px">45631</td>
+											<td><img src="img/logo/156.jpg" width="150" height="100" /></td>
+											<td width="50px">
+												<h2><span>OLAY</span></h2></td>
+											<td>法国</td>
+											<td class="text-l">玉兰油OLAY，是宝洁公司全球著名的护肤品牌，OLAY以全球高科技护肤研发技术为后盾......</td>
+											<td>2014-6-11</td>
+											<td class="td-manage">
+												<button class="btn btn-info brand-revise" onclick="brandRevise(this)">修改</button>
+												<button class="btn btn-danger brand-delete" onclick="brandDelete(this)">删除</button>
+											</td>
+										</tr>
+										<tr>
+											<td width="25px"><input type="checkbox" class="ace"></td>
+											<td width="80px">90876</td>
+											<td><img src="img/logo/1145.jpg" width="150" height="100" /></td>
+											<td width="50px">
+												<h2>自然堂</h2></td>
+											<td>中国</td>
+											<td class="text-l">集科研、生产、销售为一体，日化线、专业线并存的大型跨国集团企业......</td>
+											<td>2014-8-11</td>
+											<td class="td-manage">
+												<button class="btn btn-info brand-revise" onclick="brandRevise(this)">修改</button>
+												<button class="btn btn-danger brand-delete" onclick="brandDelete(this)">删除</button>
+											</td>
+										</tr>
+										<tr>
+											<td width="25px"><input type="checkbox" class="ace"></td>
+											<td width="80px">64738</td>
+											<td><img src="img/logo/1208.jpg" width="150" height="100" /></td>
+											<td width="50px">
+												<h2>一叶子</h2></td>
+											<td>澳洲</td>
+											<td class="text-l">一叶子拥有天然纯净和高品质的同时，将澳洲特有的自由无束的生活艺术气质渗入护肤主张......</td>
+											<td>2014-9-14</td>
+											<td class="td-manage">
+												<button class="btn btn-info brand-revise" onclick="brandRevise(this)">修改</button>
+												<button class="btn btn-danger brand-delete" onclick="brandDelete(this)">删除</button>
+											</td>
+										</tr>
+										<tr>
+											<td width="25px"><input type="checkbox" class="ace"></td>
+											<td width="80px">23958</td>
+											<td><img src="img/logo/1252.jpg" width="150" height="100" /></td>
+											<td width="50px">
+												<h2>植美村</h2></td>
+											<td>中国</td>
+											<td class="text-l">植美村首个提出"分龄护肤"的理念，为女性消费者研发、生产分龄护肤产品......</td>
+											<td>2015-01-04</td>
+											<td class="td-manage">
+												<button class="btn btn-info brand-revise" onclick="brandRevise(this)">修改</button>
+												<button class="btn btn-danger brand-delete" onclick="brandDelete(this)">删除</button>
+											</td>
+										</tr>
+										<tr>
+											<td width="25px"><input type="checkbox" class="ace"></td>
+											<td width="80px">89790</td>
+											<td><img src="img/logo/1270.jpg" width="150" height="100" /></td>
+											<td width="50px">
+												<h2>温碧泉</h2></td>
+											<td>中国</td>
+											<td class="text-l">温碧泉以补水细分领域切入市场，经过近七年的经营与发展，成长为日化行业的五星级品牌。</td>
+											<td>2015-02-04</td>
+											<td class="td-manage">
+												<button class="btn btn-info brand-revise" onclick="brandRevise(this)">修改</button>
+												<button class="btn btn-danger brand-delete" onclick="brandDelete(this)">删除</button>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<form class="form-inline" role="form" style="padding-left: 40px;padding-top: 20px;">
+								<div class="form-group has-success has-feedback">
+									<label class="control-label" for="brand-search-box">输入关键字&nbsp;&nbsp;</label>
+									<input type="text" class="form-control" id="brand-search-box" value="">
+									<span class="glyphicon glyphicon-search form-control-feedback "></span>
+								</div>
+							</form>
+							<button class="btn btn-success brand-search-btn" style="margin-top: -5%;margin-left: 35%;">搜索</button>
+						</div>
+						<!--品牌管理 end-->
+						<div class="tab-pane" id="classify-management">
+							<h1>分类管理</h1>
+						</div>
+						<div class="tab-pane " id="ad-management">
+							<h1>广告管理</h1>
+						</div>
+						<div class="tab-pane" id="classify-management-two">
+							<h1>分类管理2</h1>
+						</div>
+						<div class="tab-pane " id="trade-infor">
+							<h1>交易信息</h1>
+						</div>
+						<div class="tab-pane" id="order-management">
+							<h1>订单管理</h1>
+						</div>
+						<div class="tab-pane " id="trade-money">
+							<h1>交易金额</h1>
+						</div>
+						<div class="tab-pane" id="order-deal">
+							<h1>订单处理</h1>
+						</div>
+
+					</div>
+				</div>
+
+				<!---right-content end-->
+				<!--删除modal-->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel">信息</h4>
+							</div>
+							<div class="modal-body">
+								确定要删除吗？
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default shanchu" data-dismiss="modal">删除</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--停用modal-->
+				<div class="modal fade" id="myModalting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel">信息</h4>
+							</div>
+							<div class="modal-body">
+								确定要停用吗？
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default tingyong" data-dismiss="modal">停用</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--修改modal-->
+				<div class="modal fade" id="myModalxiugai" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel">请填写下面的信息</h4>
+							</div>
+							<div class="modal-body">
+								<form role="form">
+									<div class="form-group">
+										<label for="ID">ID</label>
+										<input type="text" class="form-control" id="ID" value="" readonly>
+									</div>
+									<div class="form-group" id="preview">
+										<img id="imghead" src="img/logo/1270.jpg" width="200" height="100" />200*100
+										<input type="file" onchange="previewImage(this)" id="picture" style="margin-top: 10px;"/>
+									</div>
+									<div class="form-group">
+										<label for="exampleInputFile">品牌名称</label>
+										<input type="text" id="name" class="form-control" value="">
+									</div>
+									<div class="form-group">
+										<label for="region">所属地区、国家</label>
+										<select class="form-control" id="region">
+											<option value="中国">中国</option>
+											<option value="法国">法国</option>
+											<option value="澳洲">澳洲</option>
+											<option value="美国">美国</option>
+											<option value="英国">英国</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="date">加入时间</label>
+										<input type="date" id="date" class="form-control" value="">
+									</div>
+									<div class="form-group">
+										<label for="talkTopic2">描述</label>
+										<textarea class="form-control" name="talkTopic" id="talkTopic2" rows="2" maxlength='100' onKeyDown="checkLengthB()" onKeyUp="checkLengthB()" onPaste="checkLengthB()"></textarea>
+										<p class="textarea-numberbar" style="font-size: 12px;color: #ccc;">还可以输入<span id="validNum2">100</span>字</p>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default save" data-dismiss="modal">保存</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--添加modal-->
+				<div class="modal fade" id="myModaltianjia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel">请填写下面的信息</h4>
+							</div>
+							<div class="modal-body">
+								<form role="form">
+									<div class="form-group">
+										<label for="ID">ID</label>
+										<input type="text" class="form-control" id="ID" value="">
+									</div>
+									<div class="form-group" id="preview2">
+										<img id="imghead2" src="img/bg_03.png" width="200" height="100" />200*100
+										<input type="file" onchange="previewImage2(this)" id="picture2" style="margin-top: 10px;"/>
+									</div>
+									<div class="form-group">
+										<label for="exampleInputFile">品牌名称</label>
+										<input type="text" id="name" class="form-control" value="">
+									</div>
+									<div class="form-group">
+										<label for="region">所属地区、国家</label>
+										<select class="form-control" id="region">
+											<option value="中国">中国</option>
+											<option value="法国">法国</option>
+											<option value="澳洲">澳洲</option>
+											<option value="美国">美国</option>
+											<option value="英国">英国</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="date">加入时间</label>
+										<input type="date" id="date" class="form-control" value="">
+									</div>
+									<div class="form-group">
+										<label for="talkTopic3">描述</label>
+										<textarea class="form-control" name="talkTopic" id="talkTopic3" rows="2" maxlength='100' onKeyDown="checkLengthA()" onKeyUp="checkLengthB()" onPaste="checkLengthB()"></textarea>
+										<p class="textarea-numberbar" style="font-size: 12px;color: #ccc;">还可以输入<span id="validNum3">100</span>字</p>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default add" data-dismiss="modal">添加</button>
+								<button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/echarts.js"></script>
+
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="vakata-jstree-9770c67/dist/jstree.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js"></script>
+		<script type="text/javascript">
+			/******品牌管理的删除******/
+			function brandDelete(obj){
+				var $obj = $(obj)
+					$obj.attr('data-toggle','modal');
+					$obj.attr('data-target','#myModal')
+					$('.shanchu').on('click',function(){
+						$obj.parentsUntil('tr').parent().empty()
+					})
+			}
+			/******品牌管理的修改******/
+			function brandRevise(obj){
+				var $obj = $(obj)
+					for(var i=0;i<$('.brand-table table tr').length;i++){
+						$('.td-manage').find('button').eq(0).removeAttr('data-toggle')
+						$('.td-manage').find('button').eq(0).removeAttr('data-target')
+					}
+					$obj.attr('data-toggle','modal');
+					$obj.attr('data-target','#myModalxiugai')
+					var ID = $obj.parent().siblings().eq(1).text()
+					var Img =$obj.parent().siblings().eq(2).find('img').attr("src")
+					var Name = $obj.parent().siblings().eq(3).find('h2').text()
+					var Region = $obj.parent().siblings().eq(4).text()
+					var Desrip = $obj.parent().siblings().eq(5).text()
+					var Date = $obj.parent().siblings().eq(6).text()
+					$('#myModalxiugai').find("#ID").val(ID)
+					$('#myModalxiugai').find("#imghead").attr('src',Img)
+					$('#myModalxiugai').find("#name").val(Name)
+					$('#myModalxiugai').find("#region").val(Region)
+					$('#myModalxiugai').find("#talkTopic2").val(Desrip)
+					$('#myModalxiugai').find("#date").val(Date)
+					$('.save').on('click',function(){
+						var gaiImg = $('#myModalxiugai').find("#imghead").attr('src')
+						var gaiName = $('#myModalxiugai').find("#name").val()
+						var gaiRegion = $('#myModalxiugai').find("#region").val()
+						var gaiDesrip = $('#myModalxiugai').find("#talkTopic2").val()
+						var gaiDate = $('#myModalxiugai').find("#date").val()
+						$(".brand-revise[data-toggle]").parent().siblings().eq(2).find('img').attr("src",gaiImg)
+						$(".brand-revise[data-toggle]").parent().siblings().eq(3).find('h2').text(gaiName)
+						$(".brand-revise[data-toggle]").parent().siblings().eq(4).text(gaiRegion)
+						$(".brand-revise[data-toggle]").parent().siblings().eq(5).text(gaiDesrip)
+						$(".brand-revise[data-toggle]").parent().siblings().eq(6).text(gaiDate)
+					})
+				
+			}
+			
+		</script>
+	</body>
+
+</html>

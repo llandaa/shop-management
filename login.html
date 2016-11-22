@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>login</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/style-login.css" />
+		<!--[if lt IE 9]>
+		  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body >
+		<!--导航-->
+		<nav class="navbar  navbar-inverse" role="navigation">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				     </button>
+					<a class="navbar-brand" href="#">后台管理界面</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">返回首页</a>
+						</li>
+						<li>
+							<a href="#">帮助</a>
+						</li>
+						<li>
+							<a href="#">关于</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+		</nav>
+		<div class="container-fluid">
+			<div class="text-center" style="color: #fff;">
+				<h1 style="text-shadow: 5px 5px 2px rgba(0,0,0,1);">后台管理系统</h1>
+				<h3>Background Management System</h3>
+			</div>
+			<div class="bg">
+				<h3 style="margin-top:0 ;">
+					<i class="glyphicon glyphicon-user"></i>
+					<a href="#">管理员登录</a>
+				</h3>
+				<div style="margin-top: 20px;">
+					<img src="img/login.png" style="width: 30%;" class="pull-left" />
+					<div class="pull-left" style="margin-left:50px">
+						<form class="form-inline" role="form">
+							<div class="form-group  has-feedback">
+								<input type="text" class="form-control" name="登录名">
+								<span class="glyphicon glyphicon-user form-control-feedback" style="color: #aaa;"></span>
+							</div>
+						</form>
+						<form class="form-inline" role="form" style="margin-top: 20px;">
+							<div class="form-group  has-feedback">
+								<input type="password" class="form-control" name="密码">
+								<span class="glyphicon glyphicon-lock form-control-feedback" style="color: #aaa;"></span>
+							</div>
+						</form>
+						<form class="form-inline" role="form" style="margin-top: 20px;">
+							<div class="form-group  has-feedback">
+								<input type="checkbox" class="ace" >
+								<span class="lbl" style="font-size: 12px;">保存密码</span>
+							</div>
+						</form>
+						<a class="btn btn-primary pull-right" id="login_btn" >登录</a>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/base-login.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>
